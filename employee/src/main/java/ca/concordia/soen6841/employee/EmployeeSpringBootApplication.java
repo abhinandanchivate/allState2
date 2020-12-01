@@ -1,20 +1,19 @@
-package ca.concordia.soen6841.dbservice;
+package ca.concordia.soen6841.employee;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 @SpringBootApplication
-//@EnableHystrixDashboard
-@EnableCircuitBreaker
 
-@EnableJpaAuditing
+@RibbonClient(name = "employee")
 @EnableEurekaClient
-public class DbServiceApplication {
+public class EmployeeSpringBootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DbServiceApplication.class, args);
+		SpringApplication.run(EmployeeSpringBootApplication.class, args);
 	}
 }
